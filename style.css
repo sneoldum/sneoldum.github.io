@@ -13,10 +13,18 @@ h2{
 
 h2:hover{
     color: #34E4CB;
-    font-size: 2em;
+    font-size: 3em;
 }
 
-.center {
+.center-vertical {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.center-horizontal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,4 +34,7 @@ table,tr,td{
     border: 1px solid black;
     border-collapse: collapse;
     
+}
+.container{
+    margin-top: 20px;
 }
