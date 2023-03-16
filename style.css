@@ -38,3 +38,7 @@ table,tr,td{
 .container{
     margin-top: 20px;
 }
+footer {
+    text-align: center;
+    font-family: sans-serif;
+  }
