@@ -1,192 +1,237 @@
-
 .center-vertical {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .center-horizontal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-table,tr,td{
-    border: 1px solid black;
-    border-collapse: collapse;
-    
+table,
+tr,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
 }
-.container{
-    margin-top: 20px;
+
+.container {
+  margin-top: 20px;
 }
+
 footer {
-    text-align: center;
-    font-family: sans-serif;
-  }
-  a {
-    cursor: pointer;
-  }
+  text-align: center;
+  font-family: sans-serif;
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a {
+  cursor: pointer;
+}
+
+a.button {
+  padding: 10px 15px;
+  border: 2px solid white;
+  border-radius: 100px;
+}
+
+a.button:hover {
+  background-color: white;
+  color: black;
+}
+
+body {
+  color: rgba(26, 26, 26, .7);
+  font-family: 'Lora', serif;
+  margin: 0;
+}
+
+.button,
+#details h1,
+footer address,
+header h1 strong,
+#links {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#details {
+  display: flex;
+  justify-content: space-between;
+}
+
+#details div {
+  width: calc(50% - 20px);
+}
+
+#details img {
+  width: 100%;
+}
+
+#details h1 {
+  color: rgb(61, 153, 145);
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+footer {
+  background-color: rgb(31, 31, 31);
+  color: rgba(255, 255, 255, .8);
+  text-align: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 25px 325px;
+}
+
+footer p {
+  color: rgba(255, 255, 255, .4);
+}
+
+h1 a.button {
+  border: 0;
+  background-color: #34e4cb;
+}
+
+h1 a.button:hover {
+  background-color: rgba(54, 179, 168, 0.75);
+  color: inherit;
+}
+
+header {
+  color: white;
+  background-image: url('Images/header.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-weight: normal;
+  text-align: center;
+  z-index: 1;
+}
+
+header h1 a {
+  font-size: 15px;
+}
+
+header h1 em {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+header h1 strong {
+  font-size: 68px;
+  letter-spacing: 4px;
+}
+
+header nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  font-size: 14px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#links a {
+  margin: 15px;
+}
+
+#logo {
+  font-size: 40px;
+}
+
+#main p {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 125px;
+  width: 60%;
+}
+
+#main h1 {
+  font-size: 28px;
+  font-weight: normal;
+  color: rgba(26, 26, 26, .9);
+}
+
+p {
+  line-height: 36px;
+}
+
+section {
+  margin: 100px 125px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.navbar {
+  position: absolute !important;
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+
+.flex-grid {
   
-  a.button {
-    padding: 10px 15px;
-    border: 2px solid white;
-    border-radius: 100px;
-  }
-  
-  a.button:hover {
-    background-color: white;
-    color: black;
-  }
-  
-  body {
-    color: rgba(26, 26, 26, .7);
-    font-family: 'Lora', serif;
-    margin: 0;
-  }
-  
-  .button,
-  #details h1,
-  footer address,
-  header h1 strong,
-  #links {
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  
-  #details {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  #details div {
-    width: calc(50% - 20px);
-  }
-  
-  #details img {
-    width: 100%;
-  }
-  
-  #details h1 {
-    color: rgb(61, 153, 145);
-    font-weight: normal;
-    letter-spacing: 2px;
-  }
-  
-  footer {
-    background-color: rgb(31, 31, 31);
-    color: rgba(255, 255, 255, .8);
-    text-align: center;
-    justify-content: space-between;
-    display: flex;
-    padding: 25px 325px;
-  }
-  
-  footer p {
-    color: rgba(255, 255, 255, .4);
-  }
-  
-  h1 a.button {
-    border: 0;
-    background-color: rgb(54, 179, 168);
-  }
-  
-  h1 a.button:hover {
-    background-color: rgba(54, 179, 168, 0.75);
-    color: inherit;
-  }
-  
-  header {
-    color: white;
-    background-image: url('Images/header.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 600px;
-    position: relative;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  
-  header h1 {
-    font-weight: normal;
-    text-align: center;
-    z-index: 1;
-  }
-  
-  header h1 a {
-    font-size: 15px;
-  }
-  
-  header h1 em {
-    font-size: 20px;
-    letter-spacing: 1px;
-  }
-  
-  header h1 strong {
-    font-size: 68px;
-    letter-spacing: 4px;
-  }
-  
-  header nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-  
-    font-size: 14px;
-    padding: 10px;
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  #links a {
-    margin: 15px;
-  }
-  
-  #logo {
-    font-size: 40px;
-  }
-  
-  #main p {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 125px;
-    width: 60%;
-  }
-  
-  #main h1 {
-    font-size: 28px;
-    font-weight: normal;
-    color: rgba(26,26,26,.9);
-  }
-  
-  p {
-    line-height: 36px;
-  }
-  
-  section {
-    margin: 100px 125px;
-    text-align: center;
-  }
- 
-a{
-text-decoration: none!important;
-  }
+  display: flex;
+
+}
+.flex-grid .col {
+  flex: 1;
+}
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-grid-thirds .col {
+  width: 32%;
+}
+.flex-grid { 
+  margin: 0 0 20px 0;
+}
+.col {
+  padding: 20px;
+}
+.col img:hover {
+  transform: scale(1.3);
+  transition: all 0.5s ease;
+}
+footer img:hover {
+  transform: scale(1.3);
+  transition: all 0.5s ease;
+}

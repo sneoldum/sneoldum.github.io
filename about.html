@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -12,25 +12,107 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1747/1747206.png" type="image/x-icon">
     <title>Personal Website</title>
-</head>
 
+</head>
 <body>
-    <div class="container">
-        <nav class="navbar">
-            <a class="navbar-brand" href="./home.html">
-                <img src="./Images/favicon.png" width="30" height="30" alt="">
-              </a>
-            <a href="./about.html">About</a>
-            <a href="./games.html">Contact</a>
+    <header style="background-image: url(Images/background.png);">
+        <nav class="navbar" style="position: absolute!important;">
+            <div id="logo" style="align-self: center; justify-self: center;">
+                
+                <img style="align-self: center; justify-self: center; cursor: pointer;" src="./Images/favicon.png" width="30" height="30" alt="favicon" onclick="location.href='./index.html'">
+           
+        </div>
+            <div id="links">
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </div>
         </nav>
+    </header>
+    <div class="container" id="content">
+        <!-- diğer sayfalardan gelecek içerik burada yer alacak -->
+
+        <div class="row">
+            <div class="col-8" style="align-items: center !important; display: grid !important;">
+                <h1>Hi,</h1>
+                <h1>I'm Şamil,</h1>
+                <h2>Web Developer</h2>
+            </div>
+            <div class="col-4" style="max-height: 16rem; align-items: center !important; display: grid !important;">
+                <img src="Images/DSC_7961 (1).png" alt="PersonalPhoto"
+                    style="max-height: 16rem; justify-self: right; overflow: hidden;">
+            </div>
+        </div>
+        <div>
+            <p class="center-horizontal">I'm a junior web developer. I'm 20 years old. I live in Turkey. I'm a student
+                at the Marmara University. I'm studying computer engineering. I'm learning web development. I'm learning
+                HTML, CSS, JavaScript, MsSQL, Bootstrap, Python, C#, ASP.NET, Java and more.</p>
+        </div>
+        <div class="flex-grid">
+            <div class="col">
+                <div class="flex-grid">
+                    <div class="col">
+                        <h3>My Skills</h3>
+                        <div class="flex-grid">
+                            <div class="col">HTML</div>
+                            <div class="col">CSS</div>
+                            <div class="col">JavaScript</div>
+                        </div>
+                        <div class="flex-grid">
+                            <div class="col">C</div>
+                            <div class="col">Python</div>
+                            <div class="col">C#</div>
+                        </div>
+                        <div class="flex-grid">
+                            <div class="col">ASP.NET</div>
+                            <div class="col">Java</div>
+                            <div class="col">MsSQL</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3 style="display: flex; justify-self: center;">My Projects</h3>
+                        <div class="flex-grid">
+                            <div class="col">
+
+                                <div class="col">
+                                    <a href="https://github.com/sneoldum/school_MVC">School Management System</a>
+                                </div>
+                                <div class="col">
+                                    <a href="https://github.com/sneoldum/Factory-Warehouse-Automation-with-C">Factory
+                                        Warehouse
+                                        Automation</a>
+                                </div>
+                                <div class="col">
+                                    <a href="https://github.com/sneoldum/FaceExpression">Face Expression</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
 </body>
-<footer class="border-top footer text-muted" style="display: contents">
-    <div class="container">
+<footer>
+    <div class="footer">
         &copy; <span id="year">
             <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
         </span> - Selahaddin Şamil Neoldum
     </div>
+        <br>
+    
+        <a href="https://github.com/sneoldum">
+            <img src="https://img.icons8.com/nolan/256/github.png" red alt="GitHub" width="30" height="30">
+    
+        </a>
+        <a href="https://www.twitter.com/neoldums">
+            <img src="https://img.icons8.com/color/48/000000/twitter.png" red alt="Twitter" width="30" height="30" />
+        </a>
+        <a href="https://www.instagram.com/ssneoldum/">
+            <img src="https://img.icons8.com/color/48/000000/instagram-new.png" red alt="Instagram" width="30"
+                height="30" />
+        </a>
+        <a href="https://www.linkedin.com/in/selahaddin-samil-neoldum/">
+            <img src="https://img.icons8.com/color/48/000000/linkedin.png" red alt="LinkedIn" width="30" height="30">
+        </a>
 </footer>
 </html>

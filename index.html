@@ -15,16 +15,16 @@
 </head>
 
 <body>
-    <header style="background-image: url(Images/background.png);">
-        <nav class="navbar" style="position: absolute!important;">
-            <div id="logo">
-                <a class="navbar-brand" href="./index.html">
-                    <img src="./Images/favicon.png" width="30" height="30" alt="favicon">
-                  </a>
+    <header style="background-image: url(Images/background-2.jpg);">
+        <nav class="navbar">
+            <div id="logo" style="align-self: center; justify-self: center;">
+                
+                    <img style="align-self: center; justify-self: center; cursor: pointer;" src="./Images/favicon.png" width="30" height="30" alt="favicon" onclick="location.href='./index.html'">
+               
             </div>
             <div id="links">
-                <a href="./home.html">About</a>
-                <a>Contact</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
             </div>
         </nav>
         <h1 style="color: #34e4cb; margin-bottom: -350px;">
@@ -37,45 +37,50 @@
         <div id="main">
             <h1>We conserve land through outreach, restoration, and research.</h1>
             <p>
-                Some of the Earth's greatest landscapes are threatened by increased road construction, oil and gas
-                exploration, and mining. We aim to protect these areas from inappropriate development, but we cannot
-                achieve our goals alone. Find out how you can help.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. In ipsa sequi at similique debitis nam dolore officiis magni esse. Voluptatem, velit. Odio officia iste iusto culpa pariatur consequatur itaque et nemo architecto reprehenderit, consectetur quo magni, ipsa ratione tempora sapiente nisi? Alias repellendus rem harum placeat nihil distinctio reiciendis voluptas?
             </p>
         </div>
 
         <div id="details">
             <div>
                 <img src="./Images/body-image-1.jpg" />
-                <h1>About</h1>
+                <h1 onclick="location.href='./about.html'" style="cursor:pointer ;">About</h1>
                 <p>
-                    Find out about our organization, mission, our methods, and the results of our decades of advocacy.
+                    Find out about my projects, mission, my skills of me.
                 </p>
             </div>
             <div>
                 <img src="./Images/body-image-2.jpg" />
-                <h1>Take Action</h1>
+                <h1 onclick="location.href='./contact.html'" style="cursor:pointer ;">Take Action</h1>
                 <p>
-                    Ready to take the next step? You can become a contributor to our cause, or participate yourself.
+                    Ready to take the next step? You can become a contributor to me cause, or participate yourself.
                 </p>
             </div>
         </div>
 
     </section>
-    <footer>
-        <a href="https://github.com/sneoldum"> 
-            <img src="https://img.icons8.com/nolan/256/github.png"red alt="GitHub" width="30" height="30"> 
-            
+</body>
+<footer>
+    <div class="footer">
+        &copy; <span id="year">
+            <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
+        </span> - Selahaddin Şamil Neoldum
+    </div>
+        <br>
+    
+        <a href="https://github.com/sneoldum">
+            <img src="https://img.icons8.com/nolan/256/github.png" red alt="GitHub" width="30" height="30">
+    
         </a>
         <a href="https://www.twitter.com/neoldums">
             <img src="https://img.icons8.com/color/48/000000/twitter.png" red alt="Twitter" width="30" height="30" />
         </a>
         <a href="https://www.instagram.com/ssneoldum/">
-            <img src="https://img.icons8.com/color/48/000000/instagram-new.png"red alt="Instagram" width="30" height="30" />
+            <img src="https://img.icons8.com/color/48/000000/instagram-new.png" red alt="Instagram" width="30"
+                height="30" />
         </a>
         <a href="https://www.linkedin.com/in/selahaddin-samil-neoldum/">
             <img src="https://img.icons8.com/color/48/000000/linkedin.png" red alt="LinkedIn" width="30" height="30">
         </a>
-    </footer>
-</body>
-
+</footer>
 </html>
