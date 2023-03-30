@@ -15,18 +15,42 @@
 
 </head>
 
+<script>
+    function redirecting(element) {
+        var value = element.value;
+        if (value == "Home page") {
+            alert("Redirecting to home page!");
+            window.location.href = "./index.html";
+        } else if (value == "About") {
+            alert("Redirecting to about page!");
+            window.location.href = "./about.html";
+        } else if (value == "Contact") {
+            alert("Redirecting to contact page!");
+            window.location.href = "./contact.html";
+        }
+    }
+</script>
+
 <body>
+
+
     <header style="background-image: url(Images/background-2.jpg);">
-        <nav class="navbar" style="position: absolute!important;">
+        <nav class="navbar">
             <div id="logo" style="align-self: center; justify-self: center;">
 
-                <img style="align-self: center; justify-self: center; cursor: pointer;" src="./Images/favicon.png"
-                    width="30" height="30" alt="favicon" onclick="location.href='./index.html'">
+                <button class="btn " style="align-self: center; justify-self: center; cursor: pointer;"
+                    src="./Images/favicon.png" width="30" height="30" alt="favicon" value="Home page" id="myButton"
+                    onclick="redirecting(this)"><img class="button"
+                        style="align-self: center; justify-self: center; cursor: pointer;" src="./Images/favicon.png"
+                        width="30" height="30" alt="favicon" value="Home page" id="myButton"
+                        onclick="redirecting(this)"></button>
 
             </div>
             <div id="links">
-                <a href="./about.html">About</a>
-                <a href="./contact.html">Contact</a>
+                <button id="myButton" class="btn btn-outline-danger" value="About" href="./about.html"
+                    onclick="redirecting(this)">About</button>
+                <button id="myButton" class="btn btn-outline-primary" value="Contact" href="./contact.html"
+                    onclick="redirecting(this)">Contact</button>
             </div>
         </nav>
     </header>
