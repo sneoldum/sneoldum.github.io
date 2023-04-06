@@ -288,6 +288,18 @@ a {
 .flex-grid .col {
   flex: 1;
 }
+
+@media (max-width: 500px) {
+  
+
+  .flex-grid {
+    flex-direction: column;
+  }
+  .flex-grid .col {
+    width: 100%;
+  }
+}
+
 .flex-grid-thirds {
   display: flex;
   justify-content: space-between;
@@ -316,4 +328,5 @@ footer img:hover {
   .flex-grid-thirds .col {
     width: 100%;
   }
+  
 }
