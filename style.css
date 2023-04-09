@@ -330,3 +330,60 @@ footer img:hover {
   }
   
 }
+
+.caption-3 {
+	overflow: hidden;
+	background: #000;
+}
+
+.caption-3 img {
+	-webkit-transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.caption-3:hover img {
+	opacity: 0.5;
+}
+
+.caption-3::after,
+.caption-3::before {
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	color: #fff;
+	z-index: 1;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out; 
+	-moz-transition: -moz-transform 0.3s ease-in-out; 
+	transition: transform 0.3s ease-in-out; 
+}
+
+.caption-3::after {
+	content: attr(data-title);
+	top: 0;
+	background: #0083ab;
+	font-size: 40px;
+	font-weight: 300;
+	padding: 30px;
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.caption-3::before {
+	content: '...' attr(data-description) '...';
+	top: 50%;
+	background: #f27545;
+	font-size: 14px;
+	padding: 20px;
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+.caption-3:hover::after,
+.caption-3:hover::before {
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	transform: translateY(0%);
+}
