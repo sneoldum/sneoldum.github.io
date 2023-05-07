@@ -387,3 +387,8 @@ footer img:hover {
 	-moz-transform: translateY(0%);
 	transform: translateY(0%);
 }
+.button {
+border: none;
+background-color: transparent;
+
+}
