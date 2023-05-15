@@ -42,6 +42,7 @@ a.button {
   padding: 10px 15px;
   border: 2px solid white;
   border-radius: 100px;
+  
 }
 
 a.button:hover {
@@ -392,3 +393,18 @@ border: none;
 background-color: transparent;
 
 }
+
+::-webkit-scrollbar {
+
+  width: 10px;
+  height: 10px;
+  background-image: linear-gradient(180deg, red 0%, blue 100%); 
+}
+
+::-webkit-scrollbar-thumb {
+  
+  background-image: linear-gradient(180deg, #34e4cb 0%, white 99%); 
+  border-radius: 5px;
+  
+}
+
