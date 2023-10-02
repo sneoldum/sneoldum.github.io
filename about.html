@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="style.css">
     <script rel="stylesheet" src="./site.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -12,24 +11,18 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1747/1747206.png" type="image/x-icon">
     <title>Personal Website</title>
-
 </head>
 
-
 <body>
-
-
     <header style="background-image: url(images/background-2.jpg);">
         <nav class="navbar">
             <div id="logo" style="align-self: center; justify-self: center;">
-
                 <button class="btn " style="align-self: center; justify-self: center; cursor: pointer;"
                     src="./images/favicon.png" width="30" height="30" alt="favicon" value="Home" id="myButton"
                     onclick="redirecting(this)"><img class="button"
                         style="align-self: center; justify-self: center; cursor: pointer;" src="./images/favicon.png"
                         width="30" height="30" alt="favicon" value="Home" id="myButton"
                         onclick="redirecting(this)"></button>
-
             </div>
             <div id="links">
                 <button id="myButton" class="btn btn-outline-danger" value="About" href="./about.html"
@@ -40,8 +33,6 @@
         </nav>
     </header>
     <div class="container" id="content">
-        <!-- diğer sayfalardan gelecek içerik burada yer alacak -->
-
         <div class="row">
             <div class="col-8" style="align-items: center !important; display: grid !important;">
                 <h1>Hi,</h1>
@@ -83,29 +74,27 @@
                         <h3 style="display: flex; justify-self: center;">My Projects</h3>
                         <div class="flex-grid">
                             <div class="col">
-
                                 <div class="col">
                                     <a href="https://github.com/sneoldum/school_MVC">School Management System</a>
                                 </div>
                                 <div class="col">
                                     <a href="https://github.com/sneoldum/Factory-Warehouse-Automation-with-C">Factory
-                                        Warehouse
-                                        Automation</a>
+                                        Warehouse Automation</a>
                                 </div>
                                 <div class="col">
                                     <a href="https://github.com/sneoldum/FaceExpression">Face Expression</a>
                                 </div>
                             </div>
-
                             <div class="flex-grid" style="display: block;">
                                 <div class="col">
-                                    <a href="/game/index.html">Catch the Emoji</a>
-                                </div>
-                                <div class="col">
-                                    <a href="https://stocksavvy.azurewebsites.net">Stock Savvy Portfolio</a>
+                                    <div class="col">
+                                        <a href="/game/index.html">Catch the Emoji</a>
+                                    </div>
+                                    <div class="col">
+                                        <a href="https://stocksavvy.azurewebsites.net">Stock Savvy Portfolio</a>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -114,16 +103,15 @@
     </div>
 </body>
 <footer>
-    <div class="footer">
-        &copy; <span id="year">
+    <div>
+        &copy; <div id="year">
             <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
-        </span> - Selahaddin Şamil Neoldum
+        </div>Selahaddin Şamil Neoldum
+        <br>
     </div>
-    <br>
-
+</div>
     <a href="https://github.com/sneoldum">
         <img src="https://img.icons8.com/nolan/256/github.png" red alt="GitHub" width="30" height="30">
-
     </a>
     <a href="https://www.twitter.com/neoldums">
         <img src="https://img.icons8.com/color/48/000000/twitter.png" red alt="Twitter" width="30" height="30" />
