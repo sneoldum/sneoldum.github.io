@@ -8,6 +8,8 @@ var currentLevel = 1; // The number of current level
 var totalLevels; // Total number of levels in the game
 
 var fruitTapsCount = 0;
+var comboCount = 0; // For combo bonuses
+var lastTapTime = 0; // For timing combos
 
 var generateRandomNumb = function (minNumb, maxNumb) {
   // generate random number in range
@@ -126,9 +128,12 @@ var timeEngines = {
     timeLeft = gameTime.innerHTML;
   },
   increaseTime: function () {
-    // Add 0.5 to the game time label
-    gameTime.innerHTML = parseFloat(gameTime.innerHTML) + 0.5;
-    timeLeft = parseFloat(gameTime.innerHTML);
+    // Add  to the game time
+    timeLeft = parseFloat(timeLeft) + 0.1;
+    playTime = parseFloat(playTime) + 0.1;
+    gameTime.innerHTML = Math.ceil(timeLeft); // Round up to show whole seconds
+    // Recalculate progress value to maintain accuracy
+    progressValue = (timeLeft / playTime) * 100;
   },
   checkTime: function () {
     // Check if game's time is 0 or not
@@ -147,7 +152,12 @@ var addLevel = function (n, g, t) {
   // Adding levels function
   levels[n] = { goal: g, time: t };
 };
-addLevel(1, 4, 10); // Adding level 1
+// Adding multiple fun levels with progressive difficulty
+addLevel(1, 4, 10); // Level 1: 5 fruits in 15 seconds
+addLevel(2, 8, 10); // Level 2: 8 fruits in 18 seconds
+addLevel(3, 12, 10); // Level 3: 12 fruits in 20 seconds
+addLevel(4, 16, 10); // Level 4: 16 fruits in 22 seconds
+addLevel(5, 20, 10); // Level 5: 20 fruits in 25 seconds
 
 var updateLevelsCount = function () {
   // Get number of levels
@@ -188,16 +198,29 @@ var game = {
   levelPassed: function () {
     timeEngines.stop();
     currentLevel++; // Increase the level
-    addLevel(currentLevel, currentLevel * 4, 10); // Adding level 5
-    updateLevelsCount();
+
+    // Add new levels dynamically if we exceed predefined ones
+    if (currentLevel > totalLevels) {
+      addLevel(
+        currentLevel,
+        currentLevel * 4,
+        Math.min(10, 10 + currentLevel * 2)
+      );
+      updateLevelsCount();
+    }
+
     levelPassedCont.style.display = "block"; // Show level passed screen
     updateGameLevelValue(currentLevel); // Update level number in game space
     getGameCurrentLevel(currentLevel); // Get the current level object
     continueNextLevelButton.innerHTML = "Start Level " + currentLevel + " 👍";
     levelPassedDescreption.innerHTML =
-      "You catched all the " + fruitTapsCount + " fruits!";
+      "🎉 Amazing! You caught all " + fruitTapsCount + " fruits! 🎉";
     nextLevelDesc.innerHTML =
-      "Now try to catch " + gameCurrentLevel.goal + " fruits.";
+      "Next challenge: catch " +
+      gameCurrentLevel.goal +
+      " fruits in " +
+      gameCurrentLevel.time +
+      " seconds!";
   },
   levelLost: function () {
     timesUpCont.style.display = "block";
@@ -273,7 +296,24 @@ var fruit = {
         // when tappign the emoticon
         fruit.tap();
       };
+
+      // Make emoticons move around slowly for more challenge
+      fruit.startMoving();
     }
+  },
+
+  startMoving: function () {
+    // Make the emoticon drift around slowly
+    fruitDiv.style.transition = "all 3s ease-in-out";
+
+    var moveEmoticon = function () {
+      if (document.getElementById("emoticon")) {
+        fruit.randomPosition();
+        setTimeout(moveEmoticon, 1000 + Math.random() * 2000); // Move every 3-5 seconds
+      }
+    };
+
+    setTimeout(moveEmoticon, 1000); // Start moving after 2 seconds
   },
   random: function () {
     // generate random emoticon from the array
@@ -291,14 +331,135 @@ var fruit = {
       ) + "px"; // random top position minus the emoticon height
   },
   tap: function () {
-    timeEngines.increaseTime(); // Add 0.5 seconds when emoticon is clicked
+    // Create visual feedback
+    fruit.createClickEffect();
+
+    // Play sound effect
+    fruit.playClickSound();
+
+    // Add points and time bonus
+    timeEngines.increaseTime(); // Add  seconds when emoticon is clicked
+
+    // Check for combo bonus
+    fruit.checkComboBonus();
+
     fruit.create(); // change the emoticon
     fruitTapsCount = ++fruitTapsCount; // add 1 to the counter
     gameScore.innerHTML = fruitTapsCount + " / " + gameCurrentLevel.goal; // show the count in the count box
+
+    // Add screen shake effect
+    fruit.addScreenShake();
   },
   destroy: function () {
     gameSpace.removeChild(fruitDiv);
     timeEngines.increaseTime();
+  },
+
+  // New fun functions to make the game awesome!
+  createClickEffect: function () {
+    // Create a burst effect when clicking
+    var effect = document.createElement("div");
+    effect.className = "click-effect";
+    effect.style.position = "absolute";
+    effect.style.left = fruitDiv.style.left;
+    effect.style.top = fruitDiv.style.top;
+    effect.style.pointerEvents = "none";
+    effect.innerHTML = "+0.1s ⚡";
+    effect.style.color = "#ff6b35";
+    effect.style.fontWeight = "bold";
+    effect.style.fontSize = "20px";
+    effect.style.zIndex = "1000";
+    effect.style.animation = "floatUp 1s ease-out forwards";
+    gameSpace.appendChild(effect);
+
+    // Remove effect after animation
+    setTimeout(function () {
+      if (effect.parentNode) {
+        gameSpace.removeChild(effect);
+      }
+    }, 1000);
+  },
+
+  playClickSound: function () {
+    // Create click sound effect
+    try {
+      var audio = new Audio();
+      // Create a simple beep sound using Web Audio API
+      var audioContext = new (window.AudioContext ||
+        window.webkitAudioContext)();
+      var oscillator = audioContext.createOscillator();
+      var gainNode = audioContext.createGain();
+
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(
+        400,
+        audioContext.currentTime + 0.1
+      );
+
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(
+        0.01,
+        audioContext.currentTime + 0.1
+      );
+
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.1);
+    } catch (e) {
+      // Fallback if Web Audio API is not supported
+      console.log("Audio not supported");
+    }
+  },
+
+  checkComboBonus: function () {
+    var currentTime = Date.now();
+    var timeSinceLastTap = currentTime - lastTapTime;
+
+    if (timeSinceLastTap < 1000) {
+      // Less than 1 second = combo!
+      comboCount++;
+      if (comboCount >= 3) {
+        // Combo bonus! Add extra time
+        timeEngines.increaseTime();
+        fruit.showComboEffect();
+      }
+    } else {
+      comboCount = 0; // Reset combo
+    }
+
+    lastTapTime = currentTime;
+  },
+
+  showComboEffect: function () {
+    var comboText = document.createElement("div");
+    comboText.innerHTML = "🔥 COMBO! +0.1s BONUS! 🔥";
+    comboText.style.position = "fixed";
+    comboText.style.top = "30%";
+    comboText.style.left = "50%";
+    comboText.style.transform = "translateX(-50%)";
+    comboText.style.color = "#ff6b35";
+    comboText.style.fontSize = "24px";
+    comboText.style.fontWeight = "bold";
+    comboText.style.zIndex = "2000";
+    comboText.style.pointerEvents = "none";
+    comboText.style.animation = "pulse 0.1s ease-in-out";
+    document.body.appendChild(comboText);
+
+    setTimeout(function () {
+      if (comboText.parentNode) {
+        document.body.removeChild(comboText);
+      }
+    }, 1000);
+  },
+
+  addScreenShake: function () {
+    // Add subtle screen shake
+    gameSpace.style.animation = "shake 0.1s ease-in-out";
+    setTimeout(function () {
+      gameSpace.style.animation = "";
+    }, 200);
   },
 };
 fruit.create();
