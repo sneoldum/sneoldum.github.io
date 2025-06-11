@@ -126,9 +126,9 @@ var timeEngines = {
     timeLeft = gameTime.innerHTML;
   },
   increaseTime: function () {
-    // Add 1 from the game time label
-    gameTime.innerHTML = gameTime.innerHTML + 0.5;
-    timeLeft = gameTime.innerHTML;
+    // Add 0.5 to the game time label
+    gameTime.innerHTML = parseFloat(gameTime.innerHTML) + 0.5;
+    timeLeft = parseFloat(gameTime.innerHTML);
   },
   checkTime: function () {
     // Check if game's time is 0 or not
