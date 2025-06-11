@@ -123,6 +123,10 @@ var timeEngines = {
     gameTime.innerHTML = gameTime.innerHTML - 1;
     timeLeft = gameTime.innerHTML;
   },
+  increaseTime: function() { // Add 1 from the game time label
+    gameTime.innerHTML = gameTime.innerHTML + 0.5;
+    timeLeft = gameTime.innerHTML;
+  },
   checkTime: function() { // Check if game's time is 0 or not
     if (gameTime.innerHTML == 0) {
       game.timesUp();
@@ -247,6 +251,7 @@ var fruit = {
   },
   destroy: function() {
     gameSpace.removeChild(fruitDiv);
+    timeEngines.increaseTime()
   },
 }
 fruit.create();
