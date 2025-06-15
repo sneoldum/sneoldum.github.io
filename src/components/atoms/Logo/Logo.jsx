@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Image, Text, HStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import faviconImg from "../../../../images/favicon.png";
 
 const MotionBox = motion(Box);
 
@@ -20,7 +21,7 @@ const Logo = ({ size = "md", showText = true, ...props }) => {
     >
       <HStack spacing={showText ? 3 : 0}>
         <Image
-          src="/images/favicon.png"
+          src={faviconImg}
           alt="Logo"
           width={`${sizeMap[size].image}px`}
           height={`${sizeMap[size].image}px`}
