@@ -9,6 +9,7 @@ const NavMenu = ({
   items,
   direction = "horizontal",
   spacing = 8,
+  onClick,
   ...props
 }) => {
   const location = useLocation();
@@ -39,6 +40,7 @@ const NavMenu = ({
             key={path}
             as={RouterLink}
             to={path}
+            onClick={onClick}
             position="relative"
             color={isActive ? activeColor : inactiveColor}
             fontWeight={isActive ? "semibold" : "medium"}

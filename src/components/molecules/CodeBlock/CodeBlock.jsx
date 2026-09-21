@@ -124,7 +124,7 @@ const CodeBlock = () => {
   return (
     <MotionBox
       position="relative"
-      maxW="480px"
+      maxW={{ base: "100%", sm: "440px", md: "480px" }}
       w="full"
       initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
       animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -203,32 +203,32 @@ const CodeBlock = () => {
         {/* Header with gradient and controls */}
         <Box
           background="linear-gradient(90deg, rgba(147, 51, 234, 0.2) 0%, rgba(79, 70, 229, 0.2) 50%, rgba(59, 130, 246, 0.2) 100%)"
-          px={6}
-          py={4}
+          px={{ base: 3, sm: 6 }}
+          py={{ base: 3, sm: 4 }}
           borderBottom="1px solid rgba(255, 255, 255, 0.1)"
           backdropFilter="blur(10px)"
         >
           <Flex justify="space-between" align="center">
-            <HStack spacing={3}>
+            <HStack spacing={2}>
               <MotionBox
-                w={3}
-                h={3}
+                w={2.5}
+                h={2.5}
                 bg="linear-gradient(135deg, #FF6B6B, #FF8E8E)"
                 borderRadius="full"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               />
               <MotionBox
-                w={3}
-                h={3}
+                w={2.5}
+                h={2.5}
                 bg="linear-gradient(135deg, #FFD93D, #FFE55B)"
                 borderRadius="full"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               />
               <MotionBox
-                w={3}
-                h={3}
+                w={2.5}
+                h={2.5}
                 bg="linear-gradient(135deg, #6BCF7F, #8FE8A3)"
                 borderRadius="full"
                 whileHover={{ scale: 1.2 }}
@@ -238,7 +238,7 @@ const CodeBlock = () => {
 
             <Text
               color="rgba(255, 255, 255, 0.9)"
-              fontSize="sm"
+              fontSize={{ base: "xs", sm: "sm" }}
               fontFamily="'JetBrains Mono', 'Fira Code', monospace"
               fontWeight="600"
               textShadow="0 0 10px rgba(147, 51, 234, 0.5)"
@@ -246,22 +246,22 @@ const CodeBlock = () => {
               developer.js
             </Text>
 
-            <HStack spacing={2}>
+            <HStack spacing={1.5}>
               <Box
-                w={2}
-                h={2}
+                w={1.5}
+                h={1.5}
                 bg="rgba(255, 255, 255, 0.3)"
                 borderRadius="full"
               />
               <Box
-                w={2}
-                h={2}
+                w={1.5}
+                h={1.5}
                 bg="rgba(255, 255, 255, 0.3)"
                 borderRadius="full"
               />
               <Box
-                w={2}
-                h={2}
+                w={1.5}
+                h={1.5}
                 bg="rgba(255, 255, 255, 0.3)"
                 borderRadius="full"
               />
@@ -270,21 +270,22 @@ const CodeBlock = () => {
         </Box>
 
         {/* Code content area */}
-        <Flex>
+        <Flex overflowX="auto">
           {/* Line numbers with gradient background */}
           <Box
             background="linear-gradient(180deg, rgba(147, 51, 234, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%)"
-            px={4}
-            py={6}
+            px={{ base: 2.5, sm: 4 }}
+            py={{ base: 4, sm: 6 }}
             borderRight="1px solid rgba(255, 255, 255, 0.1)"
             backdropFilter="blur(5px)"
+            flexShrink={0}
           >
             <VStack spacing={1} align="flex-end">
               {codeContent.map((_, index) => (
                 <MotionText
                   key={index}
                   color="rgba(255, 255, 255, 0.4)"
-                  fontSize="xs"
+                  fontSize={{ base: "2xs", sm: "xs" }}
                   fontFamily="'JetBrains Mono', 'Fira Code', monospace"
                   lineHeight="1.6"
                   minH="1.6em"
@@ -299,8 +300,13 @@ const CodeBlock = () => {
           </Box>
 
           {/* Main code area */}
-          <Box flex="1" p={6} position="relative">
-            <VStack spacing={1} align="flex-start">
+          <Box
+            flex="1"
+            p={{ base: 3, sm: 6 }}
+            position="relative"
+            overflowX="auto"
+          >
+            <VStack spacing={1} align="flex-start" minW="max-content">
               <AnimatePresence>
                 {codeContent.map((code, index) => (
                   <MotionBox
@@ -339,7 +345,7 @@ const CodeBlock = () => {
 
                     <Text
                       color={typeColors[code.type]}
-                      fontSize="sm"
+                      fontSize={{ base: "xs", sm: "sm" }}
                       fontFamily="'JetBrains Mono', 'Fira Code', monospace"
                       lineHeight="1.6"
                       minH="1.6em"

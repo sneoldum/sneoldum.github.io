@@ -109,10 +109,10 @@ const Home = () => {
           }}
         />
 
-        <Container maxW="container.xl" py={20}>
+        <Container maxW="container.xl" py={{ base: 10, md: 16, lg: 20 }} px={{ base: 4, sm: 6 }}>
           <Grid
             templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
-            gap={12}
+            gap={{ base: 10, md: 12 }}
             alignItems="center"
           >
             <GridItem>
@@ -121,10 +121,14 @@ const Home = () => {
                 initial="hidden"
                 animate="visible"
               >
-                <VStack spacing={6} align="flex-start">
+                <VStack
+                  spacing={{ base: 4, md: 6 }}
+                  align={{ base: "center", lg: "flex-start" }}
+                  textAlign={{ base: "center", lg: "left" }}
+                >
                   <MotionText
                     variants={itemVariants}
-                    fontSize="lg"
+                    fontSize={{ base: "md", md: "lg" }}
                     color={useColorModeValue("gray.600", "gray.400")}
                     fontWeight="medium"
                   >
@@ -134,10 +138,11 @@ const Home = () => {
                   <MotionHeading
                     variants={itemVariants}
                     as="h1"
-                    size="2xl"
+                    fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
                     bgGradient="linear(to-r, brand.500, accent.500)"
                     bgClip="text"
                     lineHeight="1.2"
+                    wordBreak="break-word"
                   >
                     Selahaddin Şamil Neoldum
                   </MotionHeading>
@@ -145,7 +150,7 @@ const Home = () => {
                   <MotionHeading
                     variants={itemVariants}
                     as="h2"
-                    size="xl"
+                    fontSize={{ base: "lg", sm: "xl", md: "2xl" }}
                     color={useColorModeValue("gray.700", "gray.300")}
                     fontWeight="medium"
                   >
@@ -154,7 +159,7 @@ const Home = () => {
 
                   <MotionText
                     variants={itemVariants}
-                    fontSize="xl"
+                    fontSize={{ base: "md", md: "xl" }}
                     color={useColorModeValue("gray.600", "gray.400")}
                     maxW="500px"
                     lineHeight="relaxed"
@@ -164,8 +169,12 @@ const Home = () => {
                     and user-centered development.
                   </MotionText>
 
-                  <MotionBox variants={itemVariants}>
-                    <HStack spacing={4} flexWrap="wrap">
+                  <MotionBox variants={itemVariants} w={{ base: "full", sm: "auto" }}>
+                    <HStack
+                      spacing={4}
+                      flexWrap="wrap"
+                      justify={{ base: "center", lg: "flex-start" }}
+                    >
                       <AnimatedButton
                         as={RouterLink}
                         to="/about"
@@ -191,7 +200,7 @@ const Home = () => {
               </MotionBox>
             </GridItem>
 
-            <GridItem>
+            <GridItem w="full" overflow="hidden" display="flex" justifyContent="center">
               <MotionBox
                 variants={heroVariants}
                 initial="hidden"
@@ -199,6 +208,7 @@ const Home = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                w="full"
               >
                 <CodeBlock />
               </MotionBox>
