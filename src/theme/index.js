@@ -116,15 +116,17 @@ const components = {
     },
   },
   Heading: {
-    baseStyle: {
+    baseStyle: (props) => ({
       fontWeight: "bold",
       lineHeight: "shorter",
-    },
+      color: mode("gray.900", "white")(props),
+    }),
   },
   Text: {
-    baseStyle: {
+    baseStyle: (props) => ({
       lineHeight: "relaxed",
-    },
+      color: mode("gray.700", "gray.200")(props),
+    }),
   },
 };
 
